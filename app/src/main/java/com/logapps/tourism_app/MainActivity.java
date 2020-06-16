@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this,Register_activity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
+                finish();
             }
         });
     }

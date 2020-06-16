@@ -47,12 +47,14 @@ public class Register_activity extends AppCompatActivity {
         pass = findViewById(R.id.password);
         register = findViewById(R.id.signup_btn);
 
+        back=findViewById(R.id.back_btn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Register_activity.this , MainActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
+                finish();
             }
         });
 

@@ -63,25 +63,6 @@
         android:text="Please Enable your Location to show your nearby tourism places"/>
 
 
-    <Switch
-        android:id="@+id/_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="#7A7A7A"
-        android:fontFamily="@font/pro"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:padding="12dp"
-        android:text="Disabled"/>
-
-
-
     <Button
         android:id="@+id/start_btn"
         android:layout_width="wrap_content"
