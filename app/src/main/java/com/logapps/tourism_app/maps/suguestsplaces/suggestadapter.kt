@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.logapps.tourism_app.Most_details
 import com.logapps.tourism_app.R
 import com.logapps.tourism_app.maps.model.placesmodel
 import com.logapps.tourism_app.maps.route.route
@@ -27,6 +28,18 @@ class suggestadapter(private val context: Context, private val mPlacesmodel:Arra
             Picasso.with(context).load(mPlacesmodel.get(position).img)
                     .into(holder.itemView._image)
             holder.itemView.textView.visibility=View.GONE
+
+            holder.itemView._lin.setOnClickListener(View.OnClickListener {
+                val intent =Intent(context,Most_details::class.java)
+                intent.putExtra("name",mPlacesmodel.get(position).name)
+                intent.putExtra("title",mPlacesmodel.get(position).title.toString())
+                intent.putExtra("img",mPlacesmodel.get(position).img)
+
+                context.startActivity(intent)
+
+
+            })
+
 
         }
         catch (e:Exception)

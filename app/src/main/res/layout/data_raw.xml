@@ -51,6 +51,7 @@
                 <TextView
                     android:id="@+id/_description"
                     style="@style/a"
+                    android:maxLines="2"
                     android:text="description" />
 
                 <TextView

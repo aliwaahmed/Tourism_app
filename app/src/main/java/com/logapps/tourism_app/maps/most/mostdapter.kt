@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.logapps.tourism_app.Most_details
 import com.logapps.tourism_app.R
 import com.logapps.tourism_app.maps.model.placesmodel
 import com.logapps.tourism_app.maps.route.route
@@ -31,6 +32,18 @@ class mostdapter(private val context: Context, private val mPlacesmodel:ArrayLis
             val nextValues = List(10) { Random.nextInt(5, 10) }
 
             holder.itemView.textView.setText("users rate "+ nextValues.get(position) )
+
+            holder.itemView._lin.setOnClickListener(View.OnClickListener {
+                val intent =Intent(context, Most_details::class.java)
+                intent.putExtra("name",mPlacesmodel.get(position).name)
+                intent.putExtra("title",mPlacesmodel.get(position).title.toString())
+                intent.putExtra("img",mPlacesmodel.get(position).img)
+
+                context.startActivity(intent)
+
+
+            })
+
 
         }
         catch (e:Exception)
