@@ -20,9 +20,15 @@
         <activity android:name=".maps.route.route"></activity>
         <activity android:name=".maps.placeslist" />
         <activity android:name=".Profile_Activity" />
-        <activity android:name=".Enable_location_activity" />
-        <activity android:name=".Register_activity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Enable_location_activity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+            />
+        <activity android:name=".Register_activity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+            />
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
