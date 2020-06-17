@@ -17,29 +17,32 @@
         android:roundIcon="@drawable/avatar"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".maps.route.route"></activity>
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat"/> <!-- optional (needed if default theme has no action bar) -->
+        <activity android:name=".Most_details"></activity>
+        <activity android:name=".Suggest_details" />
+        <activity android:name=".maps.route.route" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default theme has no action bar) -->
         <activity android:name=".maps.placeslist" />
-        <activity android:name=".Profile_Activity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
-
-            />
-        <activity android:name=".Enable_location_activity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
-            />
-        <activity android:name=".Register_activity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
-            />
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
-            >
+        <activity
+            android:name=".Profile_Activity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity
+            android:name=".Enable_location_activity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity
+            android:name=".Register_activity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
