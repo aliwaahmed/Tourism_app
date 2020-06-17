@@ -48,36 +48,54 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <ImageView
-        android:id="@+id/image"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_margin="10dp" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:text="Title"
-        android:textStyle="bold"
-        android:fontFamily="@font/pro"
-        android:textSize="20dp"
-        android:textColor="#1E1E1E" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="10dp" />
+
+        <VideoView
+            android:id="@+id/_video"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="Title"
+            android:textStyle="bold"
+            android:fontFamily="@font/pro"
+            android:textSize="20dp"
+            android:textColor="#1E1E1E" />
 
 
 
-    <TextView
-        android:id="@+id/_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        android:text="description"
-        android:textStyle="bold"
-        android:fontFamily="@font/pro"
-        android:textSize="20sp"
-        android:textColor="#494949" />
+        <TextView
+            android:id="@+id/_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:text="description"
+            android:textStyle="bold"
+            android:fontFamily="@font/pro"
+            android:textSize="20sp"
+            android:textColor="#494949" />
+
+
+    </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>
