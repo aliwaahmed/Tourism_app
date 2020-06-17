@@ -25,8 +25,7 @@ class suggestadapter(private val context: Context, private val mPlacesmodel:Arra
             holder.itemView._title.setText(mPlacesmodel.get(position).name)
             holder.itemView._description.setText(mPlacesmodel.get(position).title.toString())
             Picasso.with(context).load(mPlacesmodel.get(position).img)
-                    .into(holder.itemView._image);
-
+                    .into(holder.itemView._image)
             holder.itemView.textView.visibility=View.GONE
 
         }
