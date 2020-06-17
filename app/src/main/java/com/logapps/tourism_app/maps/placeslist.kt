@@ -36,7 +36,7 @@ class placeslist : AppCompatActivity() {
 
 
         sectionsPagerAdapter.addFrag(places(), "place nearby u")
-        sectionsPagerAdapter.addFrag(sugestplaces(), "Sugest places")
+        sectionsPagerAdapter.addFrag(sugestplaces(), "suggest places")
 
 
         viewPager.adapter = sectionsPagerAdapter
