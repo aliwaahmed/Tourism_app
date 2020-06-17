@@ -80,7 +80,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
     implementation 'com.google.maps.android:android-maps-utils:1.0.0'
-
+    implementation 'com.github.khizar1556.MKVideoPlayer:mkvideoplayer:0.1.5'
     implementation("com.squareup.okhttp3:okhttp:4.7.2")
     implementation 'com.google.code.gson:gson:2.8.6'
 

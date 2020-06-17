@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.logapps.tourism_app.maps.placeslist;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,10 +31,22 @@ public class MainActivity extends AppCompatActivity {
     private ProgressDialog LoginProgress;
     private FirebaseAuth mAuth;
 
-
+    public static final String MyPREFERENCES = "MyPrefs" ;
+    SharedPreferences sharedpreferences;
+    String Email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
+        if(!sharedpreferences.getString("mail", "-1").equals("-1"))
+        {
+            Intent i = new Intent(MainActivity.this, placeslist.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            finish();
+        }
+
         setContentView(R.layout.activity_main);
 
         email = findViewById(R.id.email);
@@ -42,11 +57,14 @@ public class MainActivity extends AppCompatActivity {
         back = findViewById(R.id.back_btn);
 
 
+
+
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String Email = email.getText().toString().trim();
+                Email = email.getText().toString().trim();
                 String Pass = pass.getText().toString().trim();
 
                 if (!TextUtils.isEmpty(Email) || !TextUtils.isEmpty(Pass)){
@@ -89,6 +107,12 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "sucsess.",
                                     Toast.LENGTH_SHORT).show();
                             LoginProgress.dismiss();
+
+
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+
+                            editor.putString("mail", Email.toString());
+                            editor.commit();
                             Intent i = new Intent(MainActivity.this, Enable_location_activity.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(i);

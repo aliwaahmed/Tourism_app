@@ -1,7 +1,9 @@
 package com.logapps.tourism_app.maps
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -22,11 +24,13 @@ class placeslist : AppCompatActivity() {
 
 
     lateinit var sectionsPagerAdapter: SectionsPagerAdapter
-
+    val MyPREFERENCES = "MyPrefs"
+    var sharedpreferences: SharedPreferences? = null
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE)
 
         // do your tasks
         requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 0)
@@ -37,24 +41,13 @@ class placeslist : AppCompatActivity() {
 
         sectionsPagerAdapter.addFrag(sugestplaces(), "suggest places")
         sectionsPagerAdapter.addFrag(mostplaces(), "most visited places")
-        sectionsPagerAdapter.addFrag(places(), "place nearby u")
+         sectionsPagerAdapter.addFrag(places(), "place nearby u")
 
         viewPager.adapter = sectionsPagerAdapter
 
         sectionsPagerAdapter.notifyDataSetChanged()
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
@@ -69,17 +62,23 @@ class placeslist : AppCompatActivity() {
         val id: Int = item.getItemId()
         return when (id) {
             R.id.item1 -> {
-                val intent=Intent(this@placeslist,Profile_Activity::class.java)
+                val intent = Intent(this@placeslist, Profile_Activity::class.java)
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
                 true
             }
             R.id.item2 -> {
 
-                val intent=Intent(this@placeslist,MainActivity::class.java)
+                val editor = sharedpreferences!!.edit()
+
+                editor.putString("mail", "-1")
+                editor.commit()
+                val intent = Intent(this@placeslist, MainActivity::class.java)
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
                 finish()
+
+
 
                 true
             }
