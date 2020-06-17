@@ -102,27 +102,16 @@ class sugestplaces : Fragment() {
         sumodel9.img = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Hurghada_Hotels_R03.jpg/420px-Hurghada_Hotels_R03.jpg"
 
 
-
-
         arrayList.add(sumodel)
-
         arrayList.add(sumodel1)
-
         arrayList.add(sumodel2)
-
         arrayList.add(sumodel3)
-
         arrayList.add(sumodel4)
         arrayList.add(sumodel5)
         arrayList.add(sumodel6)
-
         arrayList.add(sumodel7)
-
         arrayList.add(sumodel8)
         arrayList.add(sumodel9)
-
-
-
 
         v.rec.setLayoutManager(LinearLayoutManager(context))
         v.rec.setAdapter(context?.let { suggestadapter(it, arrayList) })
