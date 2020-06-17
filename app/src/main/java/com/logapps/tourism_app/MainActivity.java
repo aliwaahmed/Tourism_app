@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         pass = findViewById(R.id.password);
         loginBtn =findViewById(R.id.login_btn);
+        create = findViewById(R.id.new_account_btn);
 
         back = findViewById(R.id.back_btn);
 
@@ -63,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         //progress dialog
         LoginProgress = new ProgressDialog(this);
-
-        create = findViewById(R.id.new_account_btn);
 
 
         create.setOnClickListener(new View.OnClickListener() {

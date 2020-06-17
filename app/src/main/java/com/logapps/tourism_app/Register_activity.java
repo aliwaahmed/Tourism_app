@@ -46,6 +46,9 @@ public class Register_activity extends AppCompatActivity {
         email = findViewById(R.id.email);
         pass = findViewById(R.id.password);
         register = findViewById(R.id.signup_btn);
+        back = findViewById(R.id.back_btn);
+
+
 
         back=findViewById(R.id.back_btn);
         back.setOnClickListener(new View.OnClickListener() {

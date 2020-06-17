@@ -23,10 +23,8 @@
         android:id="@+id/tabs"
         android:layout_width="0dp"
         android:layout_height="50dp"
-
-        android:background="?attr/colorPrimary"
+        android:background="#FF8F00"
         ads:layout_constraintBottom_toTopOf="@+id/view_pager"
-
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toTopOf="parent"
