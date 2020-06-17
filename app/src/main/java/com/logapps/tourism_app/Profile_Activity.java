@@ -87,9 +87,8 @@ public class Profile_Activity extends AppCompatActivity {
 
                 startActivityForResult(Intent.createChooser(galleryIntent, "SELECT IMAGE"), GALLERY_PICK);
 
-                CropImage.activity()
-                        .setGuidelines(CropImageView.Guidelines.ON)
-                        .start(Profile_Activity.this);
+
+
             }
         });
 
@@ -166,10 +165,7 @@ public class Profile_Activity extends AppCompatActivity {
                 String current_user_id = mCurrentUser.getUid();
                 Uri imageUri = data.getData();
 
-                CropImage.activity(imageUri)
-                        .setAspectRatio(1, 1)
-                        .setMinCropWindowSize(500, 500)
-                        .start(this);
+
                 // uploading photo to page all users
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 //  imageUri.compress(Bitmap.CompressFormat.JPEG, 100, baos);
@@ -207,9 +203,8 @@ public class Profile_Activity extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 mProgressDilog.dismiss();
                                                 if (task.isSuccessful()) {
-                                                    Intent selfIntent = new Intent(Profile_Activity.this, Profile_Activity.class);
-                                                    startActivity(selfIntent);
-                                                    Toast.makeText(Profile_Activity.this, "Profile image stored to firebase database successfully.", Toast.LENGTH_SHORT).show();
+                                                    recreate();
+
                                                 } else {
                                                     String message = task.getException().getMessage();
                                                     Toast.makeText(Profile_Activity.this, "Error Occured..." + message, Toast.LENGTH_SHORT).show();

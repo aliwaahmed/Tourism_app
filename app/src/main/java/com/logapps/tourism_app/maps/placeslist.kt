@@ -6,7 +6,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
@@ -14,6 +13,7 @@ import com.google.android.material.tabs.TabLayout
 import com.logapps.tourism_app.MainActivity
 import com.logapps.tourism_app.Profile_Activity
 import com.logapps.tourism_app.R
+import com.logapps.tourism_app.maps.most.mostplaces
 import com.logapps.tourism_app.maps.suguestsplaces.sugestplaces
 import com.logapps.tourism_app.maps.ui.places
 
@@ -35,9 +35,9 @@ class placeslist : AppCompatActivity() {
         val viewPager: ViewPager = findViewById(R.id.view_pager)
 
 
-        sectionsPagerAdapter.addFrag(places(), "place nearby u")
         sectionsPagerAdapter.addFrag(sugestplaces(), "suggest places")
-
+        sectionsPagerAdapter.addFrag(mostplaces(), "most visited places")
+      //  sectionsPagerAdapter.addFrag(places(), "place nearby u")
 
         viewPager.adapter = sectionsPagerAdapter
 
@@ -79,6 +79,7 @@ class placeslist : AppCompatActivity() {
                 val intent=Intent(this@placeslist,MainActivity::class.java)
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
+                finish()
 
                 true
             }
