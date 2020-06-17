@@ -49,30 +49,27 @@ import java.util.List;
 public class route extends AppCompatActivity implements OnMapReadyCallback,
         DirectionFinderListener {
     private GoogleMap mMap;
-    private Button btnFindPath;
-    private EditText etOrigin;
-    private EditText etDestination;
+
     private List<Marker> originMarkers = new ArrayList<>();
     private List<Marker> destinationMarkers = new ArrayList<>();
     private List<Polyline> polylinePaths = new ArrayList<>();
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
     private LocationRequest mLocationRequest;
-    private Button  _done;
-    private EditText destination;
-    private EditText source;
+
+    private TextView textView4;
+    private TextView textView6;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route);
+        textView6=findViewById(R.id.textView6);
 
+        textView4=findViewById(R.id.textView4);
         originMarkers = new ArrayList<>();
         destinationMarkers = new ArrayList<>();
-        source = findViewById(R.id.source);
-
-        destination = findViewById(R.id._to_txt);
 
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -125,16 +122,8 @@ public class route extends AppCompatActivity implements OnMapReadyCallback,
                             sendRequest(String.valueOf(location.getLatitude()+","+location.getLongitude()),
                                     getIntent().getExtras().getString("lat")+","+getIntent().getExtras().getString("long"));
 
-                            _done= findViewById(R.id._done);
-
-                            _done.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
 
 
-
-                                }
-                            });
 
 
                         } else {
@@ -176,8 +165,6 @@ public class route extends AppCompatActivity implements OnMapReadyCallback,
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
-
         mMap.setMyLocationEnabled(true);
     }
 
@@ -248,7 +235,13 @@ public class route extends AppCompatActivity implements OnMapReadyCallback,
         destinationMarkers = new ArrayList<>();
         startLocationUpdates();
 
+
+
+
         for (Route route : routes) {
+
+            textView6.setText(String.valueOf(route.duration.text));
+            textView4.setText(String.valueOf(route.distance.text));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 16));
 
 
