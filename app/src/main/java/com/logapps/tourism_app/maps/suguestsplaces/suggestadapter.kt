@@ -35,6 +35,8 @@ class suggestadapter(private val context: Context, private val mPlacesmodel:Arra
                 intent.putExtra("title",mPlacesmodel.get(position).title.toString())
                 intent.putExtra("img",mPlacesmodel.get(position).img)
                 intent.putExtra("video",mPlacesmodel.get(position).video)
+                intent.putExtra("url",mPlacesmodel.get(position).url)
+
 
                 context.startActivity(intent)
 

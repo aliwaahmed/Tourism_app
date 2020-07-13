@@ -1,13 +1,11 @@
 package com.logapps.tourism_app
 
-import android.app.Activity
+import android.content.Intent
 import android.graphics.PixelFormat
-import android.media.session.MediaController
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.khizar1556.mkvideoplayer.MKPlayer
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_most_details.*
 
@@ -20,10 +18,17 @@ class Most_details : AppCompatActivity() {
 
         try {
 
+            _more.setOnClickListener(View.OnClickListener {
+
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(intent.getStringExtra("url")))
+                startActivity(browserIntent)
+
+            })
             Picasso.with(this).load(intent.getStringExtra("img"))
                     .into(image)
             _title.setText(intent.getStringExtra("name"))
             _desc.setText(intent.getStringExtra("title"))
+
             back_btn.setOnClickListener(View.OnClickListener {
 
                 onBackPressed()

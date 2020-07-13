@@ -99,6 +99,13 @@
             android:textSize="20sp"
             android:textColor="#494949" />
 
+        <Button
+            android:id="@+id/_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="more"/>
+
 
     </LinearLayout>
 
